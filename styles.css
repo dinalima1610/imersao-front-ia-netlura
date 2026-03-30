@@ -1,0 +1,168 @@
+/* Variáveis CSS para temas */
+:root {
+    --bg-color: #000; /* Fundo escuro */
+    --text-color: #fff; /* Texto branco */
+    --secondary-text: #b3b3b3; /* Texto secundário cinza */
+    --accent: #fff; /* Cor de destaque branca */
+    --button-bg: transparent; /* Fundo do botão */
+    --button-text: #fff; /* Texto do botão */
+}
+
+/* Tema claro */
+[data-theme="light"] {
+    --bg-color: #fff; /* Fundo claro */
+    --text-color: #000; /* Texto preto */
+    --secondary-text: #666; /* Texto secundário escuro */
+    --accent: #000; /* Cor de destaque preta */
+    --button-bg: #f0f0f0; /* Fundo do botão claro */
+    --button-text: #000; /* Texto do botão preto */
+}
+
+/* Reset básico */
+* {
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o preenchimento padrão de todos os elementos */
+    box-sizing: border-box; /* Inclui padding e border na largura/altura total */
+}
+
+/* Corpo da página */
+body {
+    background-color: var(--bg-color); /* Define fundo baseado no tema */
+    color: var(--text-color); /* Define texto baseado no tema */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Define a fonte padrão e fallbacks */
+    display: flex; /* Ativa layout Flexbox */
+    justify-content: center; /* Centraliza conteúdo horizontalmente */
+    align-items: center; /* Centraliza conteúdo verticalmente */
+    min-height: 100vh; /* Define altura mínima como 100% da viewport */
+    padding: 20px; /* Adiciona espaço interno de 20px em todos os lados */
+}
+
+/* Container principal */
+main {
+    text-align: center; /* Centraliza todo o texto dentro do main */
+    max-width: 800px; /* Define largura máxima como 800px */
+    width: 100%; /* Ocupa 100% da largura disponível (até o máximo) */
+}
+
+/* Cabeçalho */
+header {
+    margin-bottom: 40px; /* Adiciona espaço abaixo do cabeçalho */
+}
+
+header h1 {
+    font-size: 3rem; /* Define o tamanho da fonte em 3 vezes o tamanho base (aproximadamente 48px) */
+    font-weight: 700; /* Define peso da fonte como 700 (negrito) */
+    margin-bottom: 10px; /* Adiciona espaço abaixo do h1 */
+    color: var(--text-color); /* Define cor do texto baseada no tema */
+}
+
+header p {
+    font-size: 1.2rem; /* Define tamanho da fonte em 1.2 vezes o tamanho base */
+    color: var(--secondary-text); /* Define cor do texto baseada no tema */
+}
+
+/* Seção de perfis */
+.profiles {
+    display: flex; /* Ativa layout Flexbox para organizar perfis em linha */
+    justify-content: center; /* Centraliza os perfis horizontalmente */
+    gap: 40px; /* Adiciona espaço de 40px entre os perfis */
+    flex-wrap: wrap; /* Permite que os perfis quebrem para a linha seguinte em telas pequenas */
+    list-style: none; /* Remove marcadores de lista do ul */
+    padding: 0; /* Remove padding padrão */
+    margin: 0; /* Remove margem padrão */
+}
+
+/* Cada perfil */
+.profile {
+    cursor: pointer; /* Muda o cursor para mão ao passar sobre o perfil */
+    transition: transform 0.3s ease; /* Suaviza a transformação visual em 0.3 segundos */
+    outline: none; /* Remove o outline padrão do navegador */
+    list-style: none; /* Remove marcadores de lista do li */
+}
+
+.profile:hover {
+    transform: scale(1.1); /* Aumenta o tamanho do perfil em 10% ao passar o mouse */
+}
+
+.profile:focus {
+    outline: 2px solid var(--accent); /* Adiciona borda baseada no tema quando o perfil recebe foco */
+}
+
+/* Lista ordenada dentro do perfil */
+.profile ol {
+    display: flex; /* Ativa layout Flexbox */
+    flex-direction: column; /* Organiza os itens verticalmente */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    list-style: none; /* Remove marcadores de lista */
+    padding: 0; /* Remove padding padrão */
+    margin: 0; /* Remove margem padrão */
+}
+
+/* Itens da lista ordenada */
+.profile ol li {
+    list-style: none; /* Remove marcadores de lista */
+}
+
+/* Figura e imagem */
+figure {
+    /* display: flex; removido pois agora o layout é controlado pelo ol */
+    /* flex-direction: column; removido */
+    /* align-items: center; removido */
+}
+
+figure img {
+    width: 120px; /* Define a largura da imagem como 120 pixels */
+    height: 120px; /* Define a altura da imagem como 120 pixels (forma quadrada) */
+    border-radius: 50%; /* Cria uma forma circular (50% faz ficar redondo) */
+    object-fit: cover; /* Garante que a imagem cubra toda a área sem distorcer */
+    margin-bottom: 10px; /* Adiciona espaço abaixo da imagem */
+    border: 3px solid transparent; /* Cria uma borda invisível (preparação para animação) */
+    transition: border-color 0.3s ease; /* Suaviza a mudança de cor da borda em 0.3 segundos */
+}
+
+.profile:hover figure img {
+    border-color: var(--accent); /* Torna a borda baseada no tema quando o perfil recebe hover */
+}
+
+/* Botão de alternância de tema */
+#theme-toggle {
+    position: absolute; /* Posiciona absolutamente */
+    top: 20px; /* Distância do topo */
+    right: 20px; /* Distância da direita */
+    background-color: var(--button-bg); /* Fundo baseado no tema */
+    color: var(--button-text); /* Texto baseado no tema */
+    border: 2px solid var(--accent); /* Borda baseada no tema */
+    border-radius: 50%; /* Forma circular */
+    width: 50px; /* Largura */
+    height: 50px; /* Altura */
+    font-size: 1.5rem; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de mão */
+    transition: background-color 0.3s ease; /* Transição suave */
+}
+
+#theme-toggle:hover {
+    background-color: var(--accent); /* Fundo de destaque no hover */
+    color: var(--bg-color); /* Texto invertido no hover */
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem; /* Reduz o tamanho do título em telas pequenas (menos de 600px) */
+    }
+
+    .profiles {
+        gap: 20px; /* Reduz o espaço entre perfis em telas pequenas */
+    }
+
+    figure img {
+        width: 100px; /* Reduz a largura da imagem em telas pequenas */
+        height: 100px; /* Reduz a altura da imagem em telas pequenas */
+    }
+
+    #theme-toggle {
+        width: 40px; /* Reduz largura do botão em telas pequenas */
+        height: 40px; /* Reduz altura do botão em telas pequenas */
+        font-size: 1.2rem; /* Reduz tamanho da fonte do botão */
+    }
+}
